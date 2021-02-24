@@ -22,6 +22,17 @@ public class Ticket {
 
         Created created = new Created();
         BeanUtils.copyProperties(this, created);
+
+
+        System.out.println("*********************");
+        System.out.println("포인트 동기식 생성");
+        System.out.println("*********************");
+        movie.external.Point point = new movie.external.Point();
+        // mappings goes here
+        point.setBookingId(created.getBookingId());
+        TicketApplication.applicationContext.getBean(movie.external.PointService.class)
+            .point(point);
+
         created.publishAfterCommit();
 
 
