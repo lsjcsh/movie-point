@@ -21,7 +21,7 @@ public class Point {
         WaitedPoint waitedPoint = new WaitedPoint();
         BeanUtils.copyProperties(this, waitedPoint);
         waitedPoint.setScore(0);
-        waitedPoint.setStatus("Waited Point");
+        //waitedPoint.setStatus("Waited Point");
         waitedPoint.publishAfterCommit();
     }
 
@@ -30,7 +30,7 @@ public class Point {
         WrittenPoint writtenPoint = new WrittenPoint();
         BeanUtils.copyProperties(this, writtenPoint);
         writtenPoint.setScore(100);  //포인트지급
-        writtenPoint.setStatus("Written Point");
+        //writtenPoint.setStatus("Written Point");
         writtenPoint.publishAfterCommit();
     }
 
