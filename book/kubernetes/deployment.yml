@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book
+  namespace: movie
+  labels:
+    app: book
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book
+  template:
+    metadata:
+      labels:
+        app: book
+    spec:
+      containers:
+        - name: book
+          image: -
+          ports:
+            - containerPort: 8080
+          env:
+            - name: LANGUAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: hello-cm
+                  key: language
