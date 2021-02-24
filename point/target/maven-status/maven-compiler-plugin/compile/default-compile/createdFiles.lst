@@ -1,0 +1,11 @@
+movie\Printed.class
+movie\config\kafka\KafkaProcessor.class
+movie\AbstractEvent$1.class
+movie\WaitedPoint.class
+movie\PolicyHandler.class
+movie\WrittenPoint.class
+movie\PointController.class
+movie\PointRepository.class
+movie\AbstractEvent.class
+movie\Point.class
+movie\PointApplication.class
