@@ -16,6 +16,7 @@ public class Mypage {
         private String seat;
         private String status;
         private Integer price;
+        private Integer score;
 
 
 
@@ -68,5 +69,11 @@ public class Mypage {
         public void setPrice(Integer price) {
             this.price = price;
         }
+        public Integer getScore() {
+            return score;
+        }
 
+        public void setScore(Integer score) {
+            this.score = score;
+        }
 }

@@ -76,4 +76,42 @@ public class MypageViewHandler {
             e.printStackTrace();
         }
     }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenWaitedPoint_then_UPDATE_2(@Payload WaitedPoint pointed) {
+        try {
+            if (pointed.isMe()) {
+                // view 객체 조회
+                List<Mypage> mypageList = mypageRepository.findByBookingId(pointed.getBookingId());
+                for(Mypage mypage : mypageList) {
+                    mypage.setStatus(pointed.getStatus());
+                    mypage.setScore(pointed.getScore());
+                    // view 레파지 토리에 save
+                    mypageRepository.save(mypage);
+                }
+                
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenWrittenPoint_then_UPDATE_2(@Payload WrittenPoint pointed) {
+        try {
+            if (pointed.isMe()) {
+                // view 객체 조회
+                List<Mypage> mypageList = mypageRepository.findByBookingId(pointed.getBookingId());
+                for(Mypage mypage : mypageList) {
+                    mypage.setStatus(pointed.getStatus());
+                    mypage.setScore(pointed.getScore());
+                    // view 레파지 토리에 save
+                    mypageRepository.save(mypage);
+                }
+                
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
