@@ -55,7 +55,8 @@ MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단�
 
 ## 헥사고날 아키텍처 다이어그램 도출
 
-![hexa3](https://user-images.githubusercontent.com/74696451/108833671-805c0280-7610-11eb-9973-26e166829676.png)
+![image](https://user-images.githubusercontent.com/74696451/109022932-a7ddc880-76ff-11eb-839a-43bb632046b0.png)
+
 
 # 구현:
 
