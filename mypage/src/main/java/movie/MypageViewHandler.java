@@ -78,13 +78,13 @@ public class MypageViewHandler {
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenWaitedPoint_then_UPDATE_2(@Payload WaitedPoint pointed) {
+    public void whenWaitedPoint_then_UPDATE_3(@Payload WaitedPoint pointed) {
         try {
             if (pointed.isMe()) {
                 // view 객체 조회
                 List<Mypage> mypageList = mypageRepository.findByBookingId(pointed.getBookingId());
                 for(Mypage mypage : mypageList) {
-                    mypage.setStatus(pointed.getStatus());
+                    //mypage.setStatus(pointed.getStatus());
                     mypage.setScore(pointed.getScore());
                     // view 레파지 토리에 save
                     mypageRepository.save(mypage);
@@ -97,13 +97,13 @@ public class MypageViewHandler {
     }
     
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenWrittenPoint_then_UPDATE_2(@Payload WrittenPoint pointed) {
+    public void whenWrittenPoint_then_UPDATE_4(@Payload WrittenPoint pointed) {
         try {
             if (pointed.isMe()) {
                 // view 객체 조회
                 List<Mypage> mypageList = mypageRepository.findByBookingId(pointed.getBookingId());
                 for(Mypage mypage : mypageList) {
-                    mypage.setStatus(pointed.getStatus());
+                    //mypage.setStatus(pointed.getStatus());
                     mypage.setScore(pointed.getScore());
                     // view 레파지 토리에 save
                     mypageRepository.save(mypage);
