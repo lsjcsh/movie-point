@@ -10,7 +10,7 @@ import java.util.Date;
 @FeignClient(name="point", url="http://point:8080")
 public interface PointService {
 
-    @RequestMapping(method= RequestMethod.PATCH, path="/points")
+    @RequestMapping(method= RequestMethod.POST, path="/points")
     public void point(@RequestBody Point point);
     
 }

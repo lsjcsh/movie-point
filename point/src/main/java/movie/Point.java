@@ -17,12 +17,12 @@ public class Point {
     private String status;
 
 
-    @PostUpdate
-    public void onPostUpdate(){
+    @PostPersist
+    public void onPostPersist(){
         WrittenPoint writtenPoint = new WrittenPoint();
         BeanUtils.copyProperties(this, writtenPoint);
         writtenPoint.setScore(100);  //포인트지급
-        //writtenPoint.setStatus("Written Point");
+        writtenPoint.setStatus("Pointed");
         writtenPoint.publishAfterCommit();
     }
 
