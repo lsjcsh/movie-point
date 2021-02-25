@@ -34,8 +34,6 @@ public class Ticket {
             .point(point);
 
         created.publishAfterCommit();
-
-
     }
 
     @PostUpdate

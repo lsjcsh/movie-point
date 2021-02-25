@@ -20,18 +20,33 @@ public class PolicyHandler{
     }
 
     @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverCreated_(@Payload Created created){
+
+        if(created.isMe()){
+            System.out.println("======================================");
+            System.out.println("##### listener  : " + created.toJson());
+            System.out.println("======================================");
+            
+            Point point = new Point();
+            point.setBookingId(created.getId());
+            point.setScore(0);
+            point.setStatus("Waiting Point");
+            pointRepository.save(point);
+        }
+    }
+
+    @StreamListener(KafkaProcessor.INPUT)
     public void wheneverPrinted_(@Payload Printed printed){
 
         if(printed.isMe()){
             System.out.println("======================================");
             System.out.println("##### listener  : " + printed.toJson());
             System.out.println("======================================");
-            
-            Point point = new Point();    
-            
-            point.setBookingId(printed.getId());
-            //point.setStatus("Written Point");
-          pointRepository.save(point);
+            pointRepository.findById(printed.getBookingId()).ifPresent((point)->{
+                point.setScore(100);
+                point.setStatus("Point Complete");
+                pointRepository.save(point);
+            });
         }
     }
 
