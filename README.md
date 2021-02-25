@@ -584,7 +584,7 @@ metadata:
   name: moviecm
   namespace: movie
 data:
-  text1: HyesunJeon
+  text1: CGV
 
 ```
 
@@ -593,10 +593,31 @@ data:
 <img width="1118" alt="스크린샷 2021-02-23 오후 7 02 08" src="https://user-images.githubusercontent.com/28583602/108828012-a3cf7f00-7609-11eb-952e-3cfb6e429bae.png">
 
 - 예매와 동시에 name에 환경변수 적용 
+```
+HTTP/1.1 201 Created
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 25 Feb 2021 01:37:48 GMT
+Location: http://book:8080/books/4
+transfer-encoding: chunked
 
-<img width="1483" alt="스크린샷 2021-02-23 오후 7 03 21" src="https://user-images.githubusercontent.com/28583602/108828129-ceb9d300-7609-11eb-9f9d-228ca82b8f96.png">
+{
+    "_links": {
+        "book": {
+            "href": "http://book:8080/books/4"
+        }, 
+        "self": {
+            "href": "http://book:8080/books/4"
+        }
+    }, 
+    "movieName": "WonderWoman", 
+    "name": "CGV", 
+    "qty": 2, 
+    "seat": "1,2", 
+    "status": "Registered", 
+    "totalPrice": 20000
+}
 
-
+```
 
 
 ## Circuit Breaker
