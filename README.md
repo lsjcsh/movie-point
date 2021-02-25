@@ -504,8 +504,7 @@ cache:
 ![image](https://user-images.githubusercontent.com/74696451/109110698-f41a1e80-777a-11eb-93ed-2f0e4e5b3792.png)
 
 - Pipeline
-
-![aws_team_codebuild](https://user-images.githubusercontent.com/60732832/108794185-a958a500-75c8-11eb-9a99-8d6129053774.png)
+![image](https://user-images.githubusercontent.com/74696451/109110950-6c80df80-777b-11eb-9ca3-0f62b9daf6d4.png)
 
 ## Zero-downtime deploy(Readiness Probe)
 
