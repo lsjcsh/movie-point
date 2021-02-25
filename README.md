@@ -225,9 +225,9 @@ mvn spring-boot:run
 
 ## 비동기식 호출
 
-결제가 이루어진 후에 Ticket시스템으로 이를 알려주는 행위는 동기식이 아니라 비 동기식으로 처리한다.
+Ticket생성 후 포인트 생성은 동기식이 아니라 비 동기식으로 처리한다.
 
-- 이를 위하여 결제이력에 기록을 남긴 후에 곧바로 예매  되었다는 도메인 이벤트를 카프카로 송출한다(Publish)
+- 이를 위하여 Ticket생성 후 곧바로 포인트 대기 상태로 도메인 이벤트를 카프카로 송출한다(Publish)
 
 ```
 package movie;
@@ -332,6 +332,10 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/tickets/** 
+        - id: point
+          uri: http://localhost:8085
+          predicates:
+            - Path=/points/** 
           
       globalcors:
         corsConfigurations:
