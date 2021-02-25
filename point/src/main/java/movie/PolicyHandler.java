@@ -21,7 +21,7 @@ public class PolicyHandler{
 
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverCreated_(@Payload Created created){
-
+/*
         if(created.isMe()){
             System.out.println("======================================");
             System.out.println("##### listener  : " + created.toJson());
@@ -34,4 +34,5 @@ public class PolicyHandler{
             pointRepository.save(point);
         }
     }
+*/
 }
