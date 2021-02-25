@@ -16,6 +16,15 @@ public class Point {
     private String contents;
     private String status;
 
+    @PostPersist
+    public void onPostUpdate(){
+        WaitedPoint waitedPoint = new WaitedPoint();
+        BeanUtils.copyProperties(this, waitedPoint);
+        waitedPoint.setScore(100);  //포인트지급
+        //waitedPoint.setStatus("waitedPoint Point");
+        waitedPoint.publishAfterCommit();
+    }
+    
     @PostUpdate
     public void onPostUpdate(){
         WrittenPoint writtenPoint = new WrittenPoint();
