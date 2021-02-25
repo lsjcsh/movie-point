@@ -15,7 +15,7 @@ public class Point {
     private Integer score;
     private String contents;
     private String status;
-
+/*
     @PostPersist
     public void onPostPersist(){
         WaitedPoint waitedPoint = new WaitedPoint();
@@ -24,7 +24,7 @@ public class Point {
         //waitedPoint.setStatus("Waited Point");
         waitedPoint.publishAfterCommit();
     }
-
+*/
     @PostUpdate
     public void onPostUpdate(){
         WrittenPoint writtenPoint = new WrittenPoint();
@@ -33,7 +33,6 @@ public class Point {
         //writtenPoint.setStatus("Written Point");
         writtenPoint.publishAfterCommit();
     }
-
 
     public Long getId() {
         return id;

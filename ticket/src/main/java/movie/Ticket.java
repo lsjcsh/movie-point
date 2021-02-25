@@ -34,7 +34,7 @@ public class Ticket {
             printed.setStatus("Printed");
 
             System.out.println("*********************");
-            System.out.println("포인트 동기식 생성 ");
+            System.out.println("포인트 동기식 생성");
             System.out.println("*********************");
             movie.external.Point point = new movie.external.Point();
             // mappings goes here
@@ -44,8 +44,6 @@ public class Ticket {
 
             printed.publishAfterCommit();
         }
-
-
     }
 
 

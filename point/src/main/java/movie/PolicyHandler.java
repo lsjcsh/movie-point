@@ -34,7 +34,7 @@ public class PolicyHandler{
             pointRepository.save(point);
         }
     }
-
+/*
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverPrinted_(@Payload Printed printed){
 
@@ -49,5 +49,5 @@ public class PolicyHandler{
             });
         }
     }
-
+*/
 }
