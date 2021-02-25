@@ -78,6 +78,9 @@ mvn spring-boot:run
 cd mypage
 mvn srping-boot:run
 
+cd point
+mvn srping-boot:run
+
 cd gateway
 mvn spring-boot:run
 ```
