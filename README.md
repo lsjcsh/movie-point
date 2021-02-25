@@ -40,7 +40,7 @@ MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단�
 
 1. 트랜잭션
    1. 결제가 되지 않은 예매 건은 아예 예매가 성립되지 않아야 한다. Sync 호출
-   2. 포인트가 발생이 되지 않으면 티켓을 수령할 수 없다. Sync 호출
+   2. 포인트가 발급되지 않으면 티켓을 수령할 수 없다. Sync 호출
 1. 장애격리
    1. 티켓 수령 기능이 수행되지 않더라도 예매는 365일 24시간 받을 수 있어야 한다. Async (event-driven), Eventual Consistency
    1. 결제시스템이 과중되면 사용자를 잠시동안 받지 않고 결제를 잠시후에 하도록 유도한다. Circuit breaker, fallback
@@ -53,7 +53,8 @@ MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단�
 ## Event Storming 결과
 
 - MSAEz 로 모델링한 이벤트스토밍 결과: http://www.msaez.io/#/storming/R6mhRNYqDQNZGOm0lF9mkOuyQb22/mine/71ff9c1518aee16ab14394848c5ab5f8
-  <img width="733" alt="스크린샷 2021-02-19 오후 4 18 04" src="https://user-images.githubusercontent.com/28583602/108471436-be82ba80-72ce-11eb-9615-f5b48346e771.png">
+![image](https://user-images.githubusercontent.com/74696451/109104465-5a00a900-776f-11eb-96e0-c37ee11581c7.png)
+
 
 ## 헥사고날 아키텍처 다이어그램 도출
 
