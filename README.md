@@ -424,7 +424,6 @@ env:
   variables:
     _PROJECT_NAME: "ticket"
     _PROJECT_DIR: "ticket"
-    CODEBUILD_RESOLVED_SOURCE_VERSION: "v3"
 
 phases:
   install:
