@@ -1,11 +1,11 @@
-movie/PointRepository.class
-movie/PointController.class
 movie/WrittenPoint.class
 movie/AbstractEvent$1.class
 movie/AbstractEvent.class
-movie/PointApplication.class
-movie/Printed.class
 movie/WaitedPoint.class
 movie/config/kafka/KafkaProcessor.class
 movie/Point.class
 movie/PolicyHandler.class
+movie/PointRepository.class
+movie/PointController.class
+movie/PointApplication.class
+movie/Printed.class
