@@ -500,8 +500,8 @@ cache:
     - "/root/.m2/**/*"
 ```
 
-- 서비스 이미지
-<img width="1655" alt="aws_ecr_team" src="https://user-images.githubusercontent.com/60732832/108799930-0ce8cf80-75d5-11eb-97e9-3e47f8a73595.png">
+- 서비스 이미지(Repository)
+![image](https://user-images.githubusercontent.com/74696451/109110698-f41a1e80-777a-11eb-93ed-2f0e4e5b3792.png)
 
 - Pipeline
 
