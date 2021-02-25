@@ -155,6 +155,71 @@ mvn spring-boot:run
 <img width="692" alt="스크린샷 2021-02-23 오전 11 18 23" src="https://user-images.githubusercontent.com/28583602/108794296-da38da00-75c8-11eb-8d86-fce182516fa7.png">
 
 
+
+## 동기식 호출(개별)
+
+분석단계에서의 조건 중 하나로 티켓수령->포인트(point) 간의 호출은 동기식 일관성을 유지하는 트랜잭션으로 처리하기로 하였다. 
+호출 프로토콜은 이미 앞서 Rest Repository 에 의해 노출되어있는 REST 서비스를 FeignClient 를 이용하여 호출하도록 한다.
+
+포인트서비스를 호출하기 위하여 Stub과 (FeignClient) 를 이용하여 Service 대행 인터페이스 (Proxy) 를 구현
+
+```
+# PointService.java
+package movie.external;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.Date;
+
+@FeignClient(name="point", url="http://point:8080")
+public interface PointService {
+
+    @RequestMapping(method= RequestMethod.POST, path="/points")
+    public void point(@RequestBody Point point);
+    
+}
+```
+- 티켓수령 직후(@PostPersist) 포인트를 주도록 한다.
+
+```
+# Ticket.java
+    @PostUpdate
+    public void onPostUpdate(){
+
+        if("Printed".equals(status)){
+            Printed printed = new Printed();
+            BeanUtils.copyProperties(this, printed);
+            printed.setStatus("Printed");
+
+            System.out.println("*********************");
+            System.out.println("포인트 동기식 호출");
+            System.out.println("*********************");
+            movie.external.Point point = new movie.external.Point();
+            // mappings goes here
+            point.setBookingId(printed.getBookingId());
+            TicketApplication.applicationContext.getBean(movie.external.PointService.class)
+                .point(point);
+
+            printed.publishAfterCommit();
+        }
+    }
+```
+1. 티켓수령
+ -- 이미지
+
+2. 포인트서비스 재기동
+```
+cd ../point
+mvn spring-boot:run
+```
+
+3. 티켓처리
+ -- 이미지
+
+
 ## 비동기식 호출
 
 결제가 이루어진 후에 Ticket시스템으로 이를 알려주는 행위는 동기식이 아니라 비 동기식으로 처리한다.
