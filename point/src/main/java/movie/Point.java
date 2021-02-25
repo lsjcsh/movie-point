@@ -16,6 +16,7 @@ public class Point {
     private String contents;
     private String status;
 
+
     @PostUpdate
     public void onPostUpdate(){
         WrittenPoint writtenPoint = new WrittenPoint();

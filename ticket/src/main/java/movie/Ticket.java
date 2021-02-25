@@ -42,7 +42,7 @@ public class Ticket {
             point.setScore(100);      
             point.setContents("create point"); 
             point.setStatus("Pointed");
-         ()   TicketApplication.applicationContext.getBean(movie.external.PointService.class)
+            TicketApplication.applicationContext.getBean(movie.external.PointService.class)
                 .point(point);
 
             printed.publishAfterCommit();
