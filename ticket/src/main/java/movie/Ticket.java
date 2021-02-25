@@ -39,7 +39,10 @@ public class Ticket {
             movie.external.Point point = new movie.external.Point();
             // mappings goes here
             point.setBookingId(printed.getBookingId());
-            TicketApplication.applicationContext.getBean(movie.external.PointService.class)
+            point.setScore(100);      
+            point.setContents("create point"); 
+            point.setStatus("Pointed");
+         ()   TicketApplication.applicationContext.getBean(movie.external.PointService.class)
                 .point(point);
 
             printed.publishAfterCommit();
